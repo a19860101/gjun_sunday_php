@@ -6,6 +6,28 @@
     
     $conn = mysqli_connect($db_host,$db_user,$db_pw,$db_name);
     mysqli_query($conn,"SET NAMES utf8");
+
+    $sql = "SELECT * FROM students";
+    $result = mysqli_query($conn,$sql);
+    // var_dump($result);
+    $row = mysqli_fetch_assoc($result);
+    // var_dump($row);
+    echo $row["id"];
+    echo $row["name"];
+    echo $row["email"];
+    echo $row["gender"];
+    echo $row["edu"];
+    echo $row["skill"];
+
+    echo "<br>";
+    $row = mysqli_fetch_assoc($result);
+    // var_dump($row);
+    echo $row["id"];
+    echo $row["name"];
+    echo $row["email"];
+    echo $row["gender"];
+    echo $row["edu"];
+    echo $row["skill"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
