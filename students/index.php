@@ -37,7 +37,7 @@
             <td><?php echo $row["gender"];?></td>
             <td><?php echo $row["skill"];?></td>
             <td>
-                <a href="#">刪除</a>
+                <a href="delete.php?id=<?php echo $row["id"];?>">刪除</a>
             </td>
         </tr>
         <?php } ?>
