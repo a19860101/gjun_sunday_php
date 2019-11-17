@@ -8,7 +8,7 @@
 </head>
 <body>
 <div>
-        <form action="" method="post">
+        <form action="store.php" method="post">
             <fieldset>
             <legend>新增學員資料</legend>
                 <div>
