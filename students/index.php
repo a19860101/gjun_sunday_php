@@ -21,16 +21,21 @@
 </head>
 <body>
     <h1>學生資料</h1>
+    <table>
+    
     <?php
         while($row = mysqli_fetch_assoc($result)){
-            echo $row["id"];
-            echo $row["name"];
-            echo $row["email"];
-            echo $row["edu"];
-            echo $row["gender"];
-            echo $row["skill"];
-            echo "<br>";
+            echo "<tr>";
+            echo "<td>".$row["id"]."</td>";
+            echo "<td>".$row["name"]."</td>";
+            echo "<td>".$row["email"]."</td>";
+            echo "<td>".$row["edu"]."</td>";
+            echo "<td>".$row["gender"]."</td>";
+            echo "<td>".$row["skill"]."</td>";
+            echo "</tr>";        
         }
     ?>
+    </table>
+
 </body>
 </html>
