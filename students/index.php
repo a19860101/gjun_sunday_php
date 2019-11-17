@@ -21,6 +21,9 @@
 </head>
 <body>
     <h1>學生資料</h1>
+    <div>
+        <a href="create.php">新增資料</a>
+    </div>
     <table>
         <tr>
             <th>ID</th>
