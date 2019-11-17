@@ -6,13 +6,7 @@
     $gender = $_POST["gender"];
     $skills = implode(",",$_POST["skills"]);
 
-    echo $name;
-    echo "<br>";
-    echo $email;
-    echo "<br>";
-    echo $edu;
-    echo "<br>";
-    echo $gender;
-    echo "<br>";
-    echo $skills;
-    echo "<br>";
+    $sql = "INSERT INTO students(name,email,edu,gender,skill)VALUES('$name','$email','$edu','$gender','$skills')";
+    mysqli_query($conn,$sql);
+
+    header("location:index.php");
