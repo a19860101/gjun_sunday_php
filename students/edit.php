@@ -1,3 +1,10 @@
+<?php
+    include("db.php");
+    $id = $_GET["id"];
+    $sql = "SELECT * FROM students WHERE id = ".$id;
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +20,11 @@
             <legend>編輯學員資料</legend>
                 <div>
                     <label for="name">姓名</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" value="<?php echo $row["name"];?>">
                 </div>
                 <div>
                     <label for="email">EMAIL</label>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" value="<?php echo $row["email"];?>">
                 </div>
                 <div>
                     <label for="edu">教育程度</label>
