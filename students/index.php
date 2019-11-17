@@ -38,6 +38,7 @@
             <td><?php echo $row["skill"];?></td>
             <td>
                 <a href="delete.php?id=<?php echo $row["id"];?>" onclick="return confirm('確認刪除？')">刪除</a>
+                <a href="edit.php?id=<?php echo $row["id"];?>">編輯</a>
             </td>
         </tr>
         <?php } ?>
