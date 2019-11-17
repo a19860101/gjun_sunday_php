@@ -30,22 +30,25 @@
                     <label for="edu">教育程度</label>
                     <select name="edu" id="edu">
                         <option value="">--請選擇--</option>
-                        <option value="國小">國小</option>
-                        <option value="國中">國中</option>
-                        <option value="高中職">高中職</option>
-                        <option value="大專院校">大專院校</option>
-                        <option value="研究所以上">研究所以上</option>
+                        <option value="國小" <?php echo $row["edu"]=="國小" ? "selected":""; ?>>國小</option>
+                        <option value="國中" <?php echo $row["edu"]=="國中" ? "selected":""; ?>>國中</option>
+                        <option value="高中職" <?php echo $row["edu"]=="高中職" ? "selected":""; ?>>高中職</option>
+                        <option value="大專院校" <?php echo $row["edu"]=="大專院校" ? "selected":""; ?>>大專院校</option>
+                        <option value="研究所以上" <?php echo $row["edu"]=="研究所以上" ? "selected":""; ?>>研究所以上</option>
                     </select>
                 </div>
+                <?php
+                    echo $row["edu"]=="國小" ? "selected":""; 
+                ?>
                 <div>
                     性別
-                    <input type="radio" name="gender" value="男" id="male">
+                    <input type="radio" name="gender" value="男" id="male" <?php echo $row["gender"]=="男" ? "checked":""; ?>>
                     <label for="male">男</label>
 
-                    <input type="radio" name="gender" value="女" id="female">
+                    <input type="radio" name="gender" value="女" id="female" <?php echo $row["gender"]=="女" ? "checked":""; ?>>
                     <label for="female">女</label>
 
-                    <input type="radio" name="gender" value="不公開" id="hide" checked>
+                    <input type="radio" name="gender" value="不公開" id="hide" <?php echo $row["gender"]=="不公開" ? "checked":""; ?>>
                     <label for="hide">不公開</label>
                 </div>
                 <div>
