@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>學生資料</h1>
@@ -25,6 +26,7 @@
             <th>教育程度</th>
             <th>性別</th>
             <th>技能</th>
+            <th>動作</th>
         </tr>
         <?php while($row = mysqli_fetch_assoc($result)){ ?>
         <tr>
@@ -34,6 +36,9 @@
             <td><?php echo $row["edu"];?></td>
             <td><?php echo $row["gender"];?></td>
             <td><?php echo $row["skill"];?></td>
+            <td>
+                <a href="#">刪除</a>
+            </td>
         </tr>
         <?php } ?>
 
