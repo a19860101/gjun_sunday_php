@@ -33,7 +33,8 @@
         email = '$email',
         edu = '$edu',
         gender = '$gender',
-        skill = '$skills'
+        skill = '$skills',
+        updated_at = NOW()
         WHERE id =".$id;
 
         mysqli_query($conn,$sql);
