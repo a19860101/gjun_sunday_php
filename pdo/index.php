@@ -4,8 +4,9 @@
         $sql = "SELECT * FROM students";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
+        $rows = array();
         while($row = $stmt->fetch()){
-            echo $row["name"]."<br>";
+            $rows[] = $row;
         }
     }catch(PDOException $e){
         echo $e->getMessage();
@@ -35,7 +36,7 @@
             <th>技能</th>
             <th>動作</th>
         </tr>
-        <?php while($row = mysqli_fetch_assoc($result)){ ?>
+        <?php foreach($rows as $row){ ?>
         <tr>
             <td><?php echo $row["id"];?></td>
             <td><?php echo $row["name"];?></td>
