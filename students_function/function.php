@@ -14,3 +14,8 @@
         $sql = "INSERT INTO students(name,email,edu,gender,skill)VALUES('$name','$email','$edu','$gender','$skills')";
         mysqli_query($conn,$sql);
     }
+    function deleteStudent($id){
+        global $conn;
+        $sql = "DELETE FROM students WHERE id = ".$id;
+        mysqli_query($conn,$sql);
+    }

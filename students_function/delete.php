@@ -1,9 +1,8 @@
 <?php
     include("db.php");
-    $id = $_GET["id"];
-    $sql = "DELETE FROM students WHERE id = ".$id;
+    include("function.php");
+    // $id = $_GET["id"];
     
     // $sql = "DELETE FROM students WHERE id = ".$_GET["id"];
-    
-    mysqli_query($conn,$sql);
+    deleteStudent($_GET["id"]);
     header("location:index.php");
