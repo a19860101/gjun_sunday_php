@@ -18,7 +18,7 @@
     }
     function storeStudent($name,$email,$edu,$gender,$skills){
         global $conn;
-        $sql = "INSERT INTO students(name,email,edu,gender,skill)VALUES('$name','$email','$edu','$gender','$skills')";
+        $sql = "INSERT INTO students(name,email,edu,gender,skill,created_at,updated_at)VALUES('$name','$email','$edu','$gender','$skills',NOW(),NOW())";
         mysqli_query($conn,$sql);
     }
     function deleteStudent($id){
