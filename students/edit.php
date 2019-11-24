@@ -53,13 +53,14 @@
                 </div>
                 <div>
                     技能
-                    <input type="checkbox" name="skills[]" id="design" value="設計">
+                    <?php $skills = explode(",",$row["skill"]);?>
+                    <input type="checkbox" name="skills[]" id="design" value="設計" <?php echo in_array("設計",$skills)?"checked":""; ?> >
                     <label for="design">設計</label>
 
-                    <input type="checkbox" name="skills[]" id="web" value="網頁">
+                    <input type="checkbox" name="skills[]" id="web" value="網頁" <?php echo in_array("網頁",$skills)?"checked":""; ?> >
                     <label for="web">網頁</label>
                     
-                    <input type="checkbox" name="skills[]" id="threed" value="3D">
+                    <input type="checkbox" name="skills[]" id="threed" value="3D" <?php echo in_array("3D",$skills)?"checked":""; ?> >
                     <label for="threed">3D</label>
                 </div>
                 <input type="submit" value="送出">
