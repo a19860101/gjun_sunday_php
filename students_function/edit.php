@@ -1,9 +1,7 @@
 <?php
     include("db.php");
-    $id = $_GET["id"];
-    $sql = "SELECT * FROM students WHERE id = ".$id;
-    $result = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_assoc($result);
+    include("function.php");
+    $row = showStudent($_GET["id"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
