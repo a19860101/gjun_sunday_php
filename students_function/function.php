@@ -26,3 +26,15 @@
         $sql = "DELETE FROM students WHERE id = ".$id;
         mysqli_query($conn,$sql);
     }
+    function updateStudent($name,$email,$edu,$gender,$skills,$id){
+        global $conn;
+        $sql = "UPDATE students SET 
+        name = '$name',
+        email = '$email',
+        edu = '$edu',
+        gender = '$gender',
+        skill = '$skills'
+        WHERE id =".$id;
+
+        mysqli_query($conn,$sql);
+    }
