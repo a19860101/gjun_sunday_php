@@ -15,7 +15,7 @@
 </head>
 <body>
 <div>
-        <form action="" method="post">
+        <form action="update.php" method="post">
             <fieldset>
             <legend>編輯學員資料</legend>
                 <div>
@@ -63,6 +63,7 @@
                     <input type="checkbox" name="skills[]" id="threed" value="3D" <?php echo in_array("3D",$skills)?"checked":""; ?> >
                     <label for="threed">3D</label>
                 </div>
+                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
                 <input type="submit" value="送出">
                 <input type="button" value="取消" onclick="history.back()">
             </fieldset>
