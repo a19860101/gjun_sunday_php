@@ -1,5 +1,6 @@
 <?php
     function showAll(){
+        global $conn;
         $sql = "SELECT * FROM students";
         $result = mysqli_query($conn,$sql);
         $rows = array();

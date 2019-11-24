@@ -1,8 +1,7 @@
 <?php
     include("db.php");
-    $sql = "SELECT * FROM students";
-    $result = mysqli_query($conn,$sql);
-    // var_dump($result);
+    include("function.php");
+    $rows = showAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,34 +27,16 @@
             <th>技能</th>
             <th>動作</th>
         </tr>
-        <?php while($row = mysqli_fetch_assoc($result)){ ?>
-        <tr>
-            <td><?php echo $row["id"];?></td>
-            <td><?php echo $row["name"];?></td>
-            <td><?php echo $row["email"];?></td>
-            <td><?php echo $row["edu"];?></td>
-            <td><?php echo $row["gender"];?></td>
-            <td><?php echo $row["skill"];?></td>
-            <td>
-                <a href="delete.php?id=<?php echo $row["id"];?>" onclick="return confirm('確認刪除？')">刪除</a>
-                <a href="edit.php?id=<?php echo $row["id"];?>">編輯</a>
-            </td>
-        </tr>
+        <?php foreach($rows as $row){ ?>
+            <tr>
+                <td><?php echo $row["id"];?></td>
+                <td><?php echo $row["name"];?></td>
+                <td><?php echo $row["email"];?></td>
+                <td><?php echo $row["edu"];?></td>
+                <td><?php echo $row["gender"];?></td>
+                <td><?php echo $row["skill"];?></td>
+            </tr>
         <?php } ?>
-
-
-    <?php
-        // while($row = mysqli_fetch_assoc($result)){
-        //     echo "<tr>";
-        //     echo "<td>".$row["id"]."</td>";
-        //     echo "<td>".$row["name"]."</td>";
-        //     echo "<td>".$row["email"]."</td>";
-        //     echo "<td>".$row["edu"]."</td>";
-        //     echo "<td>".$row["gender"]."</td>";
-        //     echo "<td>".$row["skill"]."</td>";
-        //     echo "</tr>";        
-        // }
-    ?>
     </table>
 
 </body>
