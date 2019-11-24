@@ -8,7 +8,7 @@
             echo $row["name"]."<br>";
         }
     }catch(PDOException $e){
-        echo $e->getMessate();
+        echo $e->getMessage();
     }
 ?>
 <!DOCTYPE html>
