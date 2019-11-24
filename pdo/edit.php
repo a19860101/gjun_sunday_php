@@ -1,9 +1,14 @@
 <?php
-    include("db.php");
-    $id = $_GET["id"];
-    $sql = "SELECT * FROM students WHERE id = ".$id;
-    $result = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_assoc($result);
+    try {
+        include("pdo.php");
+        $id = $_GET["id"];
+        $sql = "SELECT * FROM students WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt -> execute([$id]);
+        $row = $stmt->fetch();
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
