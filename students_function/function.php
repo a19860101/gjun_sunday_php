@@ -9,3 +9,8 @@
         }
         return $rows;
     }
+    function storeStudent($name,$email,$edu,$gender,$skills){
+        global $conn;
+        $sql = "INSERT INTO students(name,email,edu,gender,skill)VALUES('$name','$email','$edu','$gender','$skills')";
+        mysqli_query($conn,$sql);
+    }
