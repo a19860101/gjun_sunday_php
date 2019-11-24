@@ -34,6 +34,8 @@
             <th>教育程度</th>
             <th>性別</th>
             <th>技能</th>
+            <th>建立時間</th>
+            <th>更新時間</th>
             <th>動作</th>
         </tr>
         <?php foreach($rows as $row){ ?>
@@ -44,6 +46,8 @@
             <td><?php echo $row["edu"];?></td>
             <td><?php echo $row["gender"];?></td>
             <td><?php echo $row["skill"];?></td>
+            <td><?php echo $row["created_at"];?></td>
+            <td><?php echo $row["updated_at"];?></td>
             <td>
                 <a href="delete.php?id=<?php echo $row["id"];?>" onclick="return confirm('確認刪除？')">刪除</a>
                 <a href="edit.php?id=<?php echo $row["id"];?>">編輯</a>
