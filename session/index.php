@@ -1,6 +1,8 @@
 <?php
     session_start();
-    $_SESSION["USER"] = "Mary";
+    if(isset($_POST["submit"])){
+        $_SESSION["USER"] = $_POST["user"];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +13,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        <?php echo $_SESSION["USER"]; ?>
-    </h1>
+    <form action="" method="post">
+        <input type="text" name="user">
+        <input type="submit" value="登入" name="submit">
+    </form>
+    <div>
+        <?php echo $_SESSION["USER"];?>
+    </div>
 </body>
 </html>
