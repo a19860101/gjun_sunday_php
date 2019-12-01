@@ -4,7 +4,8 @@
     $db_pw = "admin";
     $db_name = "sunday";
     $db_charset = "utf8mb4";
-
+    
+    $currentD = date("Y-m-d H:i:s");
     // $dsn = "mysql:host={$db_host};dbname={$db_name};charset={$db_charset}";
     // $dsn = "mysql:host".$db_host.";dbname=".$db_name.";charset=".$db_charset;
     // $pdo = new PDO($dsn,$db_user,$db_pw);
