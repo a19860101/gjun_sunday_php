@@ -1,3 +1,14 @@
+<?php
+    include("function.php");
+    if(isset($_POST["submit"])){
+        $title = $_POST["title"];
+        $content = $_POST["content"];
+        $c_id = $_POST["c_id"];
+        $u_id = 1;
+        $row = storePost($title,$content,$c_id,$u_id);
+        header("location:index.php");
+    }
+?>
 <?php include("template/header.php"); ?>
 <?php include("template/nav.php"); ?>
 
@@ -24,7 +35,7 @@
                         <option value="3">生活</option>
                     </select>
                 </div>
-                <input type="submit" class="btn btn-primary" value="新增">
+                <input type="submit" class="btn btn-primary" value="新增" name="submit">
                 <input type="button" class="btn btn-danger" value="取消" onclick="history.back()">
             </form>
 
