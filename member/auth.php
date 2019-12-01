@@ -17,7 +17,13 @@
         if($row["pw"] == $pw){
             $_SESSION["ID"] = $row["id"];
             $_SESSION["USER"] = $row["user"];
-            header("location:index.php?login=success");
+            $_SESSION["LEVEL"] = $row["level"];
+            if($row["level"] == 0){
+                echo "管理者";
+            }else {
+                echo "一般會員";
+            }
+            // header("location:index.php?login=success");
 
         }else{
             echo "帳號或密碼錯誤";
