@@ -3,6 +3,10 @@
     if(isset($_POST["submit"])){
         $_SESSION["USER"] = $_POST["user"];
     }
+    if(isset($_POST["logout"])){
+        session_destroy();
+        header("location:index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,12 +17,27 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="user">
-        <input type="submit" value="登入" name="submit">
-    </form>
+    <?php if(isset($_SESSION["USER"])){ ?>
+    
+        <form action="" method="post">
+            <input type="submit" value="登出" name="logout">
+        </form>
+
+    <?php }else{ ?>
+
+        <form action="" method="post">
+            <input type="text" name="user">
+            <input type="submit" value="登入" name="submit">
+        </form>
+    
+    <?php } ?>
+    
     <div>
-        <?php echo $_SESSION["USER"];?>
+        <?php
+            if(isset($_SESSION["USER"])){
+                echo $_SESSION["USER"];
+            }
+        ?>
     </div>
 </body>
 </html>
