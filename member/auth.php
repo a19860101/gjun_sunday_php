@@ -1,4 +1,5 @@
 <?php
+    session_start();
     try {  
         include("pdo.php");
         $user = $_POST["user"];
@@ -14,7 +15,9 @@
         $row = $stmt->fetch();
 
         if($row["pw"] == $pw){
-            echo "已登入";
+            $_SESSION["ID"] = $row["id"];
+            $_SESSION["USER"] = $row["user"];
+            header("location:index.php");
 
         }else{
             echo "帳號或密碼錯誤";

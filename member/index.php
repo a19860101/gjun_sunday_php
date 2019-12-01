@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,16 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <?php
+            if(isset($_SESSION["USER"])){
+                echo $_SESSION["USER"]."歡迎回來!";
+            }else{
+                echo "Guest 你好!";
+            }
+        ?>
+    </div>
+    <?php if(!isset($_SESSION["ID"])){ ?>
     <div>
         <a href="signup.php">申請會員</a>
     </div>
@@ -19,11 +32,14 @@
              <input type="submit" value="登入">
         </form>
     </div>
+    <?php }else{ ?>
     <div>
-        <form action="" method="post">
+        <form action="logout.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $_SESSION["ID"];?>">
             <input type="submit" value="登出">
         </form>
     </div>
+    <?php } ?>
     <div>
         <?php
         if(isset($_GET["signup"])){
