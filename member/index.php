@@ -24,5 +24,14 @@
             <input type="submit" value="登出">
         </form>
     </div>
+    <div>
+        <?php
+        if(isset($_GET["signup"])){
+            if($_GET["signup"]=="success"){
+                echo "申請成功，請重新登入";
+            }
+        }
+        ?>
+    </div>
 </body>
 </html>
