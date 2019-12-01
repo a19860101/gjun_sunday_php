@@ -6,10 +6,28 @@
             $user = $_POST["user"];
             $pw = $_POST["pw"];
 
-            $sql = "INSERT INTO members(user,pw)VALUES(?,?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$user,$pw]);
-            header("location:index.php?signup=success");
+            $sql_check = "SELECT * FROM members WHERE user = ?";
+            $stmt_check = $pdo->prepare($sql_check);
+            $stmt_check->execute([$user]);
+
+            // $row_check = $stmt_check->fetch();
+            // if($row_check["user"] == $user){
+            //     echo "帳號重複，請重新申請";
+            // }else{
+            //     $sql = "INSERT INTO members(user,pw)VALUES(?,?)";
+            //     $stmt = $pdo->prepare($sql);
+            //     $stmt->execute([$user,$pw]);
+            //     header("location:index.php?signup=success");
+            // }
+
+            if($stmt_check->rowCount() > 0){
+                echo "帳號重複，請重新申請";
+            }else{
+                $sql = "INSERT INTO members(user,pw)VALUES(?,?)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$user,$pw]);
+                header("location:index.php?signup=success");
+            }
 
         }catch(PDOException $e){
             echo $e->getMessage();
