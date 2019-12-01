@@ -11,7 +11,7 @@
         <a href="signup.php">申請會員</a>
     </div>
     <div>
-        <form action="" method="post">
+        <form action="auth.php" method="post">
             <label for="user">帳號</label>
             <input type="text" name="user" id="user">
             <label for="pw">密碼</label>
