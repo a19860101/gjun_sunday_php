@@ -4,7 +4,7 @@
         try{
             include("pdo.php");
             $user = $_POST["user"];
-            $pw = $_POST["pw"];
+            $pw = md5(sha1($_POST["pw"]));
 
             $sql_check = "SELECT * FROM members WHERE user = ?";
             $stmt_check = $pdo->prepare($sql_check);

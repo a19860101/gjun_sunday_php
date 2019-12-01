@@ -3,7 +3,7 @@
     try {  
         include("pdo.php");
         $user = $_POST["user"];
-        $pw = $_POST["pw"];
+        $pw = md5(sha1($_POST["pw"]));
         
         if($user == "" || $pw == ""){
             header("location:index.php");
