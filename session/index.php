@@ -5,6 +5,7 @@
     }
     if(isset($_POST["logout"])){
         session_destroy();
+        // unset($_SESSION["USER"]);
         header("location:index.php");
     }
 ?>
