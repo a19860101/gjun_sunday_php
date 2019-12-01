@@ -49,5 +49,11 @@
         }
         ?>
     </div>
+    <?php if(isset($_GET["login"]) && $_GET["login"] == "success"){ ?>
+        <div>
+            登入成功
+        </div>
+    <?php } ?>
+
 </body>
 </html>
