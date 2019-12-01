@@ -19,11 +19,10 @@
             $_SESSION["USER"] = $row["user"];
             $_SESSION["LEVEL"] = $row["level"];
             if($row["level"] == 0){
-                echo "管理者";
+                header("location:backend/index.php");
             }else {
-                echo "一般會員";
+                header("location:index.php?login=success");
             }
-            // header("location:index.php?login=success");
 
         }else{
             echo "帳號或密碼錯誤";
