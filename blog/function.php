@@ -1,5 +1,6 @@
 <?php
     date_default_timezone_set("Asia/Taipei");
+    session_start();
     // $currentD = date("Y-m-d H:i:s");
     function showAllPosts(){
         include("backend/pdo.php");
@@ -59,5 +60,29 @@
         return $rows;
     }
     function auth($user,$pw){
+        try {  
+            include("backend/pdo.php");
 
+    
+            $sql = "SELECT * FROM members WHERE user = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$user]);
+            $row = $stmt->fetch();
+    
+            if($row["pw"] == $pw){
+                $_SESSION["ID"] = $row["id"];
+                $_SESSION["USER"] = $row["user"];
+                $_SESSION["LEVEL"] = $row["level"];
+                if($row["level"] == 0){
+                    header("location:backend/index.php");
+                }else {
+                    header("location:index.php?login=success");
+                }
+            }else{
+                echo "帳號或密碼錯誤";
+            }
+    
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
