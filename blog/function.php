@@ -30,7 +30,10 @@
         $stmt->execute([$title,$content,$c_id,$u_id,$currentD,$currentD]);
     }
     function updatePost($title,$content,$c_id,$id){
-        
+        include("backend/pdo.php");
+        $sql = "UPDATE posts SET title=?,content=?,c_id=?,updated_at=? WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$title,$content,$c_id,$currentD,$id]);
     }
     function deletePost($id){
         include("backend/pdo.php");

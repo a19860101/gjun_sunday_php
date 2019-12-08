@@ -28,7 +28,7 @@
                         <option value="3" <?php echo $row["c_id"]==3?"selected":""?>>生活</option>
                     </select>
                 </div>
-                <input type="hidden" name="id" value="<?php $row["id"];?>">
+                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
                 <input type="submit" class="btn btn-primary" value="儲存" name="submit">
                 <input type="button" class="btn btn-danger" value="取消" onclick="history.back()">
             </form>
