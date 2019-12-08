@@ -6,16 +6,16 @@
 <?php include("template/nav.php"); ?>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-8">
+    <div class="row justify-content-center">
+        <div class="col-md-8 py-3">
             <h2>文章列表</h2>
         </div>
         <?php foreach($rows as $row){ ?>
-        <div class="col-md-8">
+        <div class="col-md-8 p-4 border mb-5">
             <h3><?php echo $row["title"];?></h3>
             <div>作者<?php echo $row["u_id"];?></div>
             <div>分類<?php echo $row["c_id"];?></div>
-            <div>
+            <div class="py-3">
                 <?php 
                     echo mb_substr($row["content"],0,200,"utf-8");
                 ?>...
