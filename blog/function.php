@@ -62,16 +62,13 @@
     function auth($user,$pw){
         try {  
             include("backend/pdo.php");
-
-    
-            $sql = "SELECT * FROM members WHERE user = ?";
+            $sql = "SELECT * FROM users WHERE user = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$user]);
             $row = $stmt->fetch();
-    
             if($row["pw"] == $pw){
                 $_SESSION["ID"] = $row["id"];
-                $_SESSION["USER"] = $row["user"];
+                $_SESSION["NAME"] = $row["name"];
                 $_SESSION["LEVEL"] = $row["level"];
                 if($row["level"] == 0){
                     header("location:backend/index.php");
@@ -84,5 +81,10 @@
     
         }catch(PDOException $e){
             echo $e->getMessage();
+        }
+    }
+    function logout(){
+        if(isset($_GET["logout"]) && $_GET["logout"]=="true"){
+            session_destroy();
         }
     }

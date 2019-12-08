@@ -13,15 +13,21 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+      <?php if(!isset($_SESSION["ID"])){ ?>
       <li class="nav-item">
         <a class="nav-link" href="">申請會員</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">登入</a>
+        <a class="nav-link" href="loginForm.php">登入</a>
+      </li>
+      <?php }else{ ?>
+      <li class="nav-item">
+        <a href="#" class="nav-link disabled"><?php echo $_SESSION["NAME"];?>你好</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">登出</a>
+        <a class="nav-link" href="logout.php?logout=true">登出</a>
       </li>
+      <?php } ?>
     </ul>
   </div>
 </nav>
