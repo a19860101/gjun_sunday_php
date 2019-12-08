@@ -1,5 +1,6 @@
 <?php
     include("function.php");
+    $rows = showAllCates();
     if(isset($_POST["submit"])){
         $title = $_POST["title"];
         $content = $_POST["content"];
@@ -30,9 +31,11 @@
                 <div class="form-group">
                     <label for="c_id">分類</label>
                     <select name="c_id" id="c_id" class="form-control">
-                        <option value="1">體育</option>
-                        <option value="2">科技</option>
-                        <option value="3">生活</option>
+
+                    <?php foreach($rows as $row){ ?>
+                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["title"];?></option>
+                    
+                    <?php } ?>
                     </select>
                 </div>
                 <input type="submit" class="btn btn-primary" value="新增" name="submit">

@@ -3,7 +3,12 @@
     // $currentD = date("Y-m-d H:i:s");
     function showAllPosts(){
         include("backend/pdo.php");
-        $sql = "SELECT * FROM posts ORDER BY id DESC";
+        $sql = "SELECT posts.* , category.title 
+                AS c_title 
+                FROM posts 
+                LEFT JOIN category 
+                ON posts.c_id = category.id 
+                ORDER BY id DESC";
         // $sql = "SELECT * FROM posts ORDER BY id ASC";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -41,4 +46,15 @@
         $sql = "DELETE FROM posts WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$id]);
+    }
+    function showAllCates(){
+        include("backend/pdo.php");
+        $sql = "SELECT * FROM category";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $rows = array();
+        while($row = $stmt->fetch()){
+            $rows[] = $row;
+        }
+        return $rows;
     }
