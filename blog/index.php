@@ -18,6 +18,7 @@
             <div>
                 <?php echo $row["content"];?>
             </div>
+            <a href="showPost.php?id=<?php echo $row["id"];?>" class="btn btn-primary">繼續閱讀</a>
             <div>建立時間:<?php echo $row["created_at"];?></div>
             <div>更新時間:<?php echo $row["updated_at"];?></div>
         </div>

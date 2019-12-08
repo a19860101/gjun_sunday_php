@@ -12,6 +12,14 @@
         }
         return $rows;
     }
+    function showPost($id){
+        include("backend/pdo.php");
+        $sql = "SELECT * FROM posts WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $row = $stmt->fetch();
+        return $row;
+    }
     function storePost($title,$content,$c_id,$u_id){
         include("backend/pdo.php");
         // global $currentD;
