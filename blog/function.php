@@ -91,9 +91,18 @@
     function storeUser($user,$pw,$name,$email){
         try{
             include("backend/pdo.php");
-            $sql = "INSERT INTO users(user,pw,name,email,created_at,updated_at)VALUES(?,?,?,?,?,?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$user,$pw,$name,$email,$currentD,$currentD]);
+
+            $sql_check = "SELECT * FROM users WHERE user = ?";
+            $stmt_check = $pdo->prepare($sql_check);
+            $stmt_check->execute([$user]);
+            
+            if($stmt_check->rowCount() > 0){
+                header("location:register.php?error=user");
+            }else{
+                $sql = "INSERT INTO users(user,pw,name,email,created_at,updated_at)VALUES(?,?,?,?,?,?)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$user,$pw,$name,$email,$currentD,$currentD]);
+            }
 
         }catch(PDOException $e){
             echo $e->getMessage();
