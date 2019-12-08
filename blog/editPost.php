@@ -6,11 +6,11 @@
 <?php include("template/nav.php"); ?>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-8">
+    <div class="row justify-content-center">
+        <div class="col-md-8 py-3">
             <h2>編輯文章</h2>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 py-4">
             <form action="updatePost.php" method="post">
                 <div class="form-group">
                     <label for="title">文章標題</label>
