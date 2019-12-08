@@ -3,7 +3,8 @@
     // $currentD = date("Y-m-d H:i:s");
     function showAllPosts(){
         include("backend/pdo.php");
-        $sql = "SELECT * FROM posts";
+        $sql = "SELECT * FROM posts ORDER BY id DESC";
+        // $sql = "SELECT * FROM posts ORDER BY id ASC";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $rows = array();
