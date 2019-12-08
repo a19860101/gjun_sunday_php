@@ -16,7 +16,9 @@
             <div>作者<?php echo $row["u_id"];?></div>
             <div>分類<?php echo $row["c_id"];?></div>
             <div>
-                <?php echo $row["content"];?>
+                <?php 
+                    echo mb_substr($row["content"],0,200,"utf-8");
+                ?>...
             </div>
             <a href="showPost.php?id=<?php echo $row["id"];?>" class="btn btn-primary">繼續閱讀</a>
             <div>建立時間:<?php echo $row["created_at"];?></div>
