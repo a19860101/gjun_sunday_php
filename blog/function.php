@@ -58,3 +58,6 @@
         }
         return $rows;
     }
+    function auth($user,$pw){
+
+    }
