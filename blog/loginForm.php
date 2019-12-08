@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pw">密碼</label>
-                    <input type="text" id="pw" name="pw" class="form-control">
+                    <input type="pw" id="pw" name="pw" class="form-control">
                 </div>
                 <input type="submit" value="登入" class="btn btn-primary" name="login">
                 <input type="button" value="取消" class="btn btn-danger">

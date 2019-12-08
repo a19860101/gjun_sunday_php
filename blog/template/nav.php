@@ -15,7 +15,7 @@
     <ul class="navbar-nav ml-auto">
       <?php if(!isset($_SESSION["ID"])){ ?>
       <li class="nav-item">
-        <a class="nav-link" href="">申請會員</a>
+        <a class="nav-link" href="register.php">申請會員</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="loginForm.php">登入</a>

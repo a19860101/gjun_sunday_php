@@ -88,3 +88,14 @@
             session_destroy();
         }
     }
+    function storeUser($user,$pw,$name,$email){
+        try{
+            include("backend/pdo.php");
+            $sql = "INSERT INTO users(user,pw,name,email,created_at,updated_at)VALUES(?,?,?,?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$user,$pw,$name,$email,$currentD,$currentD]);
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
