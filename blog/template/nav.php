@@ -12,5 +12,16 @@
         <a class="nav-link" href="createPost.php">新增文章</a>
       </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="">申請會員</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">登入</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">登出</a>
+      </li>
+    </ul>
   </div>
 </nav>
