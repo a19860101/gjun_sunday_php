@@ -29,3 +29,9 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$title,$content,$c_id,$u_id,$currentD,$currentD]);
     }
+    function deletePost($id){
+        include("backend/pdo.php");
+        $sql = "DELETE FROM posts WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
+    }

@@ -12,7 +12,6 @@
             <div>作者：<?php echo $row["u_id"];?></div>
             <div>分類：<?php echo $row["c_id"];?></div>
             <div class="py-4">
-        
                 <?php echo $row["content"];?>
             </div>
             <div>建立時間：<?php echo $row["created_at"];?></div>
