@@ -1,10 +1,11 @@
 <?php
+date_default_timezone_set("Asia/Taipei");
     $file = $_FILES["img"];
     $filename = $_FILES["img"]["name"];
     // $filename = md5(uniqid()).".png";
     $filetype = $_FILES["img"]["type"];
     $error = $_FILES["img"]["error"];
-    $filesize = $_FILES["img"]["size"];
+    $filesize = round($_FILES["img"]["size"] / 1024);
     $tmpname = $_FILES["img"]["tmp_name"];
     // switch($filetype){
     //     case "image/jpeg":
@@ -61,7 +62,15 @@
         // echo "success";
         if($error == 0 ){
             if(move_uploaded_file($tmpname,"images/{$filename}")){
-                echo "上傳成功";
+                // echo "上傳成功";
+                try {
+                    include("pdo.php");
+                    $sql = "INSERT INTO files(name,size,created_at)VALUES(?,?,?)";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([$filename,$filesize,date("Y-m-d H:i:s")]);
+                }catch(PDOException $e){
+                    echo $e->getMessage();
+                }
                 header("location:index.php?upload=success");
             }
         }else if($error == 1){
