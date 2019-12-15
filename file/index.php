@@ -12,7 +12,7 @@
         <input type="submit" value="上傳">
     </form>
     <?php 
-        echo md5(uniqid());
+        // echo md5(uniqid());
     ?>
 </body>
 </html>

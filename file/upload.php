@@ -1,20 +1,41 @@
 <?php
     $file = $_FILES["img"];
-    // $filename = $_FILES["img"]["name"];
+    $filename = $_FILES["img"]["name"];
     // $filename = md5(uniqid()).".png";
     $filetype = $_FILES["img"]["type"];
     $error = $_FILES["img"]["error"];
     $filesize = $_FILES["img"]["size"];
     $tmpname = $_FILES["img"]["tmp_name"];
+    // switch($filetype){
+    //     case "image/jpeg":
+    //         $filename = md5(uniqid()).".jpg";
+    //         break;
+    //     case "image/png":
+    //         $filename = md5(uniqid()).".png";
+    //         break;
+    //     case "image/gif":
+    //         $filename = md5(uniqid()).".gif";
+    //         break;
+    // }
 
-    switch($filetype){
-        case "image/jpeg":
+    $path = pathinfo($filename);
+    // var_dump($path);
+    // echo $path["dirname"];
+    // echo "<br>";
+    // echo $path["basename"];
+    // echo "<br>";
+    // echo $path["extension"];
+    // echo "<br>";
+    // echo $path["filename"];
+    $ext = $path["extension"];
+    switch($ext){
+        case "jpg":
             $filename = md5(uniqid()).".jpg";
             break;
-        case "image/png":
+        case "png":
             $filename = md5(uniqid()).".png";
             break;
-        case "image/gif":
+        case "gif":
             $filename = md5(uniqid()).".gif";
             break;
     }
@@ -32,10 +53,24 @@
     // echo "<br>";
     // echo $tmpname;
     // echo "<br>";
-
-    if($error == 0 ){
-        if(move_uploaded_file($tmpname,"images/{$filename}")){
-            // echo "上傳成功";
-            header("location:index.php?upload=success");
+    if($ext == "jpg" || $ext== "png" || $ext == "gif"){
+        // echo "success";
+        if($error == 0 ){
+            if(move_uploaded_file($tmpname,"images/{$filename}")){
+                echo "上傳成功";
+                header("location:index.php?upload=success");
+            }
         }
+    }else {
+        echo "請選擇正確的格式";
     }
+
+    // if($ext != "jpg" && $ext != "png"&& $ext != "gif"){
+        // echo "請選擇正確的格式";
+        // if($error == 0 ){
+        //     if(move_uploaded_file($tmpname,"images/{$filename}")){
+        //         echo "上傳成功";
+        //         header("location:index.php?upload=success");
+        //     }
+        // }
+    // }
