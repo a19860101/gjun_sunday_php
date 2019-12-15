@@ -30,7 +30,10 @@
     ?>
     <div>
         <?php foreach($rows as $row){ ?>
-            <img src="images/<?php echo $row["name"];?>" width="200">
+            <div>
+                <img src="images/<?php echo $row["name"];?>" width="200">
+                <a href="del.php?id=<?php echo $row["id"];?>&name=<?php echo $row["name"];?>">刪除</a>
+            </div>
         <?php } ?>
     </div>
 </body>
