@@ -13,8 +13,8 @@
         <?php foreach($rows as $row){ ?>
         <div class="col-md-8 p-4 border mb-5">
             <h3><?php echo $row["title"];?></h3>
-            <div>作者:<?php echo $row["u_id"];?></div>
-            <div>分類:<?php echo $row["c_title"];?></div>
+            <div>作者: <?php echo $row["name"];?>[<?php echo $row["email"];?>]</div>
+            <div>分類: <?php echo $row["c_title"];?></div>
             <div class="py-3">
                 <?php 
                     echo mb_substr($row["content"],0,200,"utf-8");

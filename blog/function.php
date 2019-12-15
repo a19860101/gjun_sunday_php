@@ -4,11 +4,13 @@
     // $currentD = date("Y-m-d H:i:s");
     function showAllPosts(){
         include("backend/pdo.php");
-        $sql = "SELECT posts.* , category.title
+        $sql = "SELECT posts.* ,users.name,users.email, category.title
                 AS c_title 
                 FROM posts 
                 LEFT JOIN category 
-                ON posts.c_id = category.id 
+                ON posts.c_id = category.id
+                LEFT JOIN users
+                ON posts.u_id = users.id 
                 ORDER BY id DESC";
         // $sql = "SELECT * FROM posts ORDER BY id ASC";
         $stmt = $pdo->prepare($sql);
