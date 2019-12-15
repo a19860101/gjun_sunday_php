@@ -8,11 +8,18 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">文章列表</a>
       </li>
+      <?php if(isset($_SESSION["ID"])){ ?>
       <li class="nav-item">
         <a class="nav-link" href="createPost.php">新增文章</a>
       </li>
+      <?php }?>
     </ul>
     <ul class="navbar-nav ml-auto">
+      <?php if(isset($_SESSION["ID"]) && $_SESSION["LEVEL"] == 0){ ?>
+      <li class="nav-item">
+        <a class="nav-link" href="backend/index.php">管理頁面</a>
+      </li>
+      <?php }?>
       <?php if(!isset($_SESSION["ID"])){ ?>
       <li class="nav-item">
         <a class="nav-link" href="register.php">申請會員</a>
