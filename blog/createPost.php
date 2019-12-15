@@ -1,5 +1,6 @@
 <?php
     include("function.php");
+    check_login();
     $rows = showAllCates();
     if(isset($_POST["submit"])){
         $title = $_POST["title"];

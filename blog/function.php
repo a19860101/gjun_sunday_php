@@ -110,3 +110,8 @@
             echo $e->getMessage();
         }
     }
+    function check_login(){
+        if(!isset($_SESSION["ID"])){
+            header("location:index.php");
+        }
+    }

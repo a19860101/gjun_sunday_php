@@ -1,5 +1,6 @@
 <?php
     include("function.php");
+    check_login();
     $row = showPost($_GET["id"]);
 ?>
 <?php include("template/header.php"); ?>
