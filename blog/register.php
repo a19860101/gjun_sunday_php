@@ -6,7 +6,7 @@
         $email = $_POST["email"];
         $name = $_POST["name"];
         storeUser($user,$pw,$name,$email);
-        header("location:index.php?register=success");
+        
     }
 ?>
 <?php include("template/header.php");?>
@@ -40,4 +40,16 @@
         </div>
     </div>
 </div>
+<?php
+    // if(isset($_GET["error"])){
+    //     switch($_GET["error"]){
+    //         case "userRepeat":
+    //             echo "使用者帳號重複";
+    //             break;
+    //     }
+    // }
+    if(isset($_GET["error"]) && $_GET["error"] == "userRepeat"){
+        echo "使用者帳號重複";
+    }
+?>
 <?php include("template/footer.php");?>

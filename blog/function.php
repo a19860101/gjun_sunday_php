@@ -99,11 +99,12 @@
             $stmt_check->execute([$user]);
             
             if($stmt_check->rowCount() > 0){
-                header("location:register.php?error=user");
+                header("location:register.php?error=userRepeat");
             }else{
                 $sql = "INSERT INTO users(user,pw,name,email,created_at,updated_at)VALUES(?,?,?,?,?,?)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$user,$pw,$name,$email,$currentD,$currentD]);
+                header("location:index.php?register=success");
             }
 
         }catch(PDOException $e){
