@@ -5,7 +5,7 @@
         $title = $_POST["title"];
         $content = $_POST["content"];
         $c_id = $_POST["c_id"];
-        $u_id = 1;
+        $u_id = $_SESSION["ID"];
         $row = storePost($title,$content,$c_id,$u_id);
         header("location:index.php");
     }

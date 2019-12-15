@@ -4,7 +4,7 @@
     // $currentD = date("Y-m-d H:i:s");
     function showAllPosts(){
         include("backend/pdo.php");
-        $sql = "SELECT posts.* , category.title 
+        $sql = "SELECT posts.* , category.title
                 AS c_title 
                 FROM posts 
                 LEFT JOIN category 
