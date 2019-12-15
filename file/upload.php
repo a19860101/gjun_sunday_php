@@ -17,7 +17,11 @@
     //         $filename = md5(uniqid()).".gif";
     //         break;
     // }
-
+    echo $error;
+    if($error == 4){
+        echo "請選擇檔案";
+        return; //終止程式
+    }
     $path = pathinfo($filename);
     // var_dump($path);
     // echo $path["dirname"];
@@ -60,7 +64,10 @@
                 echo "上傳成功";
                 header("location:index.php?upload=success");
             }
+        }else if($error == 1){
+            echo "檔案大小超過限制";
         }
+
     }else {
         echo "請選擇正確的格式";
     }
