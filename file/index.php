@@ -1,3 +1,17 @@
+<?php
+    try{
+        include("pdo.php");
+        $sql = "SELECT * FROM files";
+        $stmt = $pdo->prepare($sql);
+        $stmt -> execute();
+        $rows = array();
+        while($row = $stmt->fetch()){
+            $rows[] = $row;
+        }
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,5 +28,10 @@
     <?php 
         // echo md5(uniqid());
     ?>
+    <div>
+        <?php foreach($rows as $row){ ?>
+            <img src="images/<?php echo $row["name"];?>" width="200">
+        <?php } ?>
+    </div>
 </body>
 </html>
