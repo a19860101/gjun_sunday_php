@@ -7,14 +7,21 @@
     $tmpname = $_FILES["img"]["tmp_name"];
 
     // echo $file;
-    var_dump($file);
-    echo $filename;
-    echo "<br>";
-    echo $filetype;
-    echo "<br>";
-    echo $error;
-    echo "<br>";
-    echo $filesize / 1024;
-    echo "<br>";
-    echo $tmpname;
-    echo "<br>";
+    // var_dump($file);
+    // echo $filename;
+    // echo "<br>";
+    // echo $filetype;
+    // echo "<br>";
+    // echo $error;
+    // echo "<br>";
+    // echo $filesize / 1024;
+    // echo "<br>";
+    // echo $tmpname;
+    // echo "<br>";
+
+    if($error == 0 ){
+        if(move_uploaded_file($tmpname,"images/{$filename}")){
+            // echo "上傳成功";
+            header("location:index.php?upload=success");
+        }
+    }
