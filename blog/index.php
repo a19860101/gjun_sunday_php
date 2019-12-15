@@ -17,7 +17,10 @@
             <div>分類: <?php echo $row["c_title"];?></div>
             <div class="py-3">
                 <?php 
-                    echo mb_substr($row["content"],0,200,"utf-8");
+                    // echo mb_substr($row["content"],0,200,"utf-8");
+                    // echo strip_tags($row["content"]);
+                    // echo $row["content"];
+                    echo mb_substr(strip_tags($row["content"]),0,200,"utf-8");
                 ?>
             </div>
             <a href="showPost.php?id=<?php echo $row["id"];?>" class="btn btn-primary">繼續閱讀</a>

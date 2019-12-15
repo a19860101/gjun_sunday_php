@@ -9,8 +9,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8 py-4">
             <h2 class="pb-3"><?php echo $row["title"]; ?></h2>
-            <div>作者：<?php echo $row["u_id"];?></div>
-            <div>分類：<?php echo $row["c_id"];?></div>
+            <div>作者：<?php echo $row["name"];?>[<?php echo $row["email"];?>]</div>
+            <div>分類：<?php echo $row["c_title"];?></div>
             <div class="py-4">
                 <?php echo $row["content"];?>
             </div>

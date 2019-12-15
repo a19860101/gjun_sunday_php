@@ -23,7 +23,15 @@
     }
     function showPost($id){
         include("backend/pdo.php");
-        $sql = "SELECT * FROM posts WHERE id = ?";
+        // $sql = "SELECT * FROM posts WHERE id = ?";
+        $sql = "SELECT posts.* ,users.name,users.email, category.title
+                AS c_title 
+                FROM posts 
+                LEFT JOIN category 
+                ON posts.c_id = category.id
+                LEFT JOIN users
+                ON posts.u_id = users.id 
+                WHERE posts.id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$id]);
         $row = $stmt->fetch();
