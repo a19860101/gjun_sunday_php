@@ -21,8 +21,13 @@
                 ?>...
             </div>
             <a href="showPost.php?id=<?php echo $row["id"];?>" class="btn btn-primary">繼續閱讀</a>
+
+            <?php if(isset($_SESSION["ID"]) && $_SESSION["ID"] == $row["u_id"]){ ?>
+            
             <a href="deletePost.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger" onclick="return confirm('確認刪除？')">刪除</a>
             <a href="editPost.php?id=<?php echo $row["id"]; ?>" class="btn btn-success">編輯</a>
+
+            <?php }?>
             <div>建立時間:<?php echo $row["created_at"];?></div>
             <div>更新時間:<?php echo $row["updated_at"];?></div>
         </div>
