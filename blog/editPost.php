@@ -39,3 +39,6 @@
 </div>
 
 <?php include("template/footer.php"); ?>
+<script>
+    CKEDITOR.replace('content');
+</script>

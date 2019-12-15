@@ -18,7 +18,7 @@
             <div class="py-3">
                 <?php 
                     echo mb_substr($row["content"],0,200,"utf-8");
-                ?>...
+                ?>
             </div>
             <a href="showPost.php?id=<?php echo $row["id"];?>" class="btn btn-primary">繼續閱讀</a>
 
