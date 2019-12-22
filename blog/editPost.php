@@ -12,7 +12,7 @@
             <h2>編輯文章</h2>
         </div>
         <div class="col-md-8 py-4">
-            <form action="updatePost.php" method="post">
+            <form action="updatePost.php" method="post"  enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">文章標題</label>
                     <input type="text" name="title" id="title" class="form-control" value="<?php echo $row["title"];?>">

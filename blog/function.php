@@ -46,11 +46,11 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$title,$filename,$content,$c_id,$u_id,$currentD,$currentD]);
     }
-    function updatePost($title,$content,$c_id,$id){
+    function updatePost($title,$filename,$content,$c_id,$id){
         include("backend/pdo.php");
-        $sql = "UPDATE posts SET title=?,content=?,c_id=?,updated_at=? WHERE id = ?";
+        $sql = "UPDATE posts SET title=?,img=?,content=?,c_id=?,updated_at=? WHERE id = ?";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$title,$content,$c_id,$currentD,$id]);
+        $stmt->execute([$title,$filename,$content,$c_id,$currentD,$id]);
     }
     function deletePost($id,$img){
         include("backend/pdo.php");
