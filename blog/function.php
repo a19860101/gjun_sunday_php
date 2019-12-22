@@ -54,7 +54,7 @@
     }
     function deletePost($id,$img){
         include("backend/pdo.php");
-        unlink("images/".$img);
+        unlink($img);
         $sql = "DELETE FROM posts WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$id]);

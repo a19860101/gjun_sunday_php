@@ -27,7 +27,7 @@
                     <td><?php echo $row["created_at"];?></td>
                     <td><?php echo $row["updated_at"];?></td>
                     <td>
-                        <a href="#" class="btn btn-danger">刪除</a>
+                        <a href="deletePost.php?id=<?php echo $row["id"]; ?>&img=<?php echo $row["img"]?>" class="btn btn-danger" onclick="return confirm('確認刪除?');">刪除</a>
                     </td>
                 </tr>
                 <?php } ?>
