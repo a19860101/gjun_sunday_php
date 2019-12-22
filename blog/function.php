@@ -139,5 +139,12 @@
     function check_login(){
         if(!isset($_SESSION["ID"])){
             header("location:index.php");
+            return;
+        }
+    }
+    function check_login_admin(){
+        if(!isset($_SESSION["ID"]) || $_SESSION["LEVEL"] == 1){
+            header("location:../index.php?access_denied");
+            return;
         }
     }

@@ -1,5 +1,6 @@
 <?php
     include("../function.php");
+    check_login_admin();
     $rows = showAllPosts();
 ?>
 <?php include("template/header.php"); ?>
