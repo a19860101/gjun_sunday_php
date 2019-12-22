@@ -7,8 +7,52 @@
         $content = $_POST["content"];
         $c_id = $_POST["c_id"];
         $u_id = $_SESSION["ID"];
-        $row = storePost($title,$content,$c_id,$u_id);
-        header("location:index.php");
+        //圖片上傳
+        $file = $_FILES["img"];
+        $filename = $_FILES["img"]["name"];
+        $filetype = $_FILES["img"]["type"];
+        $error = $_FILES["img"]["error"];
+        $filesize = round($_FILES["img"]["size"] / 1024);
+        $tmpname = $_FILES["img"]["tmp_name"];
+        if($error == 4){
+            echo "請選擇檔案";
+            return; //終止程式
+        }
+        $path = pathinfo($filename);
+        $ext = $path["extension"];
+        switch($ext){
+            case "jpg":
+                $filename = md5(uniqid()).".jpg";
+                break;
+            case "png":
+                $filename = md5(uniqid()).".png";
+                break;
+            case "gif":
+                $filename = md5(uniqid()).".gif";
+                break;
+        }
+        if($ext == "jpg" || $ext== "png" || $ext == "gif"){
+            // echo "success";
+            if($error == 0 ){
+                if(move_uploaded_file($tmpname,"images/{$filename}")){
+                    // echo "上傳成功";
+                    try {
+                        $row = storePost($title,$filename,$content,$c_id,$u_id);
+                        // header("location:index.php");
+                    }catch(PDOException $e){
+                        echo $e->getMessage();
+                    }
+                    // header("location:index.php?upload=success");
+                }
+            }else if($error == 1){
+                echo "檔案大小超過限制";
+            }
+    
+        }else {
+            echo "請選擇正確的格式";
+        }
+
+        
     }
 ?>
 <?php include("template/header.php"); ?>
