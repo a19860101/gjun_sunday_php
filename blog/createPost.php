@@ -32,13 +32,10 @@
                 break;
         }
         if($ext == "jpg" || $ext== "png" || $ext == "gif"){
-            // echo "success";
             if($error == 0 ){
                 if(move_uploaded_file($tmpname,"images/{$filename}")){
-                    // echo "上傳成功";
                     try {
                         $row = storePost($title,$filename,$content,$c_id,$u_id);
-                        // header("location:index.php");
                     }catch(PDOException $e){
                         echo $e->getMessage();
                     }

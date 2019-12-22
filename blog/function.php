@@ -42,7 +42,7 @@
         // global $currentD;
         // $created_at = date("Y-m-d H:i:s");
         // $updated_at = date("Y-m-d H:i:s");
-        $sql = "INSERT INTO posts(title,img,content,c_id,u_id,created_at,updated_at)VALUES(?,?,?,?,?,?)";
+        $sql = "INSERT INTO posts(title,img,content,c_id,u_id,created_at,updated_at)VALUES(?,?,?,?,?,?,?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$title,$filename,$content,$c_id,$u_id,$currentD,$currentD]);
     }
