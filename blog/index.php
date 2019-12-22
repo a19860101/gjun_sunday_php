@@ -13,7 +13,10 @@
         <?php foreach($rows as $row){ ?>
         <div class="col-md-8 p-4 border mb-5">
             <div class="cover">
+                <?php #if($row["img"] != ""){ ?>
+                <?php if(!empty($row["img"])){ ?>
                 <img src="images/<?php echo $row["img"];?>" class="w-100">
+                <?php } ?>
             </div>
             <h3><?php echo $row["title"];?></h3>
             <div>作者: <?php echo $row["name"];?>[<?php echo $row["email"];?>]</div>

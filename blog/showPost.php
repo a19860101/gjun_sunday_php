@@ -12,7 +12,10 @@
             <div>作者：<?php echo $row["name"];?>[<?php echo $row["email"];?>]</div>
             <div>分類：<?php echo $row["c_title"];?></div>
             <div class="cover">
+                <?php #if($row["img"] != ""){ ?>
+                <?php if(!empty($row["img"])){ ?>
                 <img src="images/<?php echo $row["img"];?>" class="w-100">
+                <?php } ?>
             </div>
             <div class="py-4">
                 <?php echo $row["content"];?>
