@@ -12,6 +12,9 @@
         </div>
         <?php foreach($rows as $row){ ?>
         <div class="col-md-8 p-4 border mb-5">
+            <div class="cover">
+                <img src="images/<?php echo $row["img"];?>" class="w-100">
+            </div>
             <h3><?php echo $row["title"];?></h3>
             <div>作者: <?php echo $row["name"];?>[<?php echo $row["email"];?>]</div>
             <div>分類: <?php echo $row["c_title"];?></div>
