@@ -9,7 +9,7 @@
         <a class="nav-link" href="index.php">文章列表</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">會員列表</a>
+        <a class="nav-link" href="memberList.php">會員列表</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
