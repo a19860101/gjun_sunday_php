@@ -24,7 +24,7 @@
                     <?php }else{ ?>
                         <label for="img">封面圖片</label>
                         <img src="images/<?php echo $row["img"];?>" width="200">
-                        <a href="#">刪除</a>
+                        <a href="deleteCover.php?id=<?php echo $row["id"];?>&img=<?php echo $row["img"];?>">刪除</a>
                     <?php }?>
                 </div>
                 <div class="form-group">
