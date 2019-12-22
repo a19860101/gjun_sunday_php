@@ -20,10 +20,14 @@
             <h2>新增文章</h2>
         </div>
         <div class="col-md-8 py-4">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">文章標題</label>
                     <input type="text" name="title" id="title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="img">封面圖片</label>
+                    <input type="file" name="img" id="img" class="form-control-file">
                 </div>
                 <div class="form-group">
                     <label for="content">文章內容</label>
