@@ -31,8 +31,11 @@
                         ?>
                     </td>
                     <td>
-                        <a href="#" class="btn btn-info">指定為管理員</a>
-                        <a href="#" class="btn btn-danger">取消管理員</a>
+                        <?php if($row["level"] == 1){ ?>
+                        <a href="switchLevel.php?id=<?php echo $row["id"];?>&level=<?php echo $row["level"];?>" class="btn btn-info" onclick="return confirm('確定修改權限？')">指定為管理員</a>
+                        <?php }else{ ?>
+                        <a href="switchLevel.php?id=<?php echo $row["id"];?>&level=<?php echo $row["level"];?>" class="btn btn-danger" onclick="return confirm('確定修改權限？')">取消管理員</a>
+                        <?php } ?>
                     </td>
                 </tr>
                 <?php } ?>
