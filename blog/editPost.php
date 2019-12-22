@@ -18,6 +18,16 @@
                     <input type="text" name="title" id="title" class="form-control" value="<?php echo $row["title"];?>">
                 </div>
                 <div class="form-group">
+                    <?php if(empty($row["img"])){?>
+                        <label for="img">封面圖片</label>
+                        <input type="file" name="img" id="img" class="form-control-file">
+                    <?php }else{ ?>
+                        <label for="img">封面圖片</label>
+                        <img src="images/<?php echo $row["img"];?>" width="200">
+                        <a href="#">刪除</a>
+                    <?php }?>
+                </div>
+                <div class="form-group">
                     <label for="content">文章內容</label>
                     <textarea name="content" id="content" rows="10" class="form-control"><?php echo $row["content"];?></textarea>
                 </div>

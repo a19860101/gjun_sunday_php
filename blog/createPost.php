@@ -15,7 +15,14 @@
         $filesize = round($_FILES["img"]["size"] / 1024);
         $tmpname = $_FILES["img"]["tmp_name"];
         if($error == 4){
-            echo "請選擇檔案";
+            // echo "請選擇檔案";
+            $filename = '';
+            try {
+                $row = storePost($title,$filename,$content,$c_id,$u_id);
+            }catch(PDOException $e){
+                echo $e->getMessage();
+            }
+            header("location:index.php?upload=success");
             return; //終止程式
         }
         $path = pathinfo($filename);
@@ -39,7 +46,7 @@
                     }catch(PDOException $e){
                         echo $e->getMessage();
                     }
-                    // header("location:index.php?upload=success");
+                    header("location:index.php?upload=success");
                 }
             }else if($error == 1){
                 echo "檔案大小超過限制";
