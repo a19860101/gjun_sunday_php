@@ -28,7 +28,7 @@
                 $sql = "SELECT * FROM posts WHERE id = ?";
                 $stmt = $this->connect()->prepare($sql);
                 $stmt->execute([$id]);
-                $row = $stms->fetch();
+                $row = $stmt->fetch();
                 return $row;
             }catch(PDOException $e){
                 echo $e->getMessage();
@@ -36,10 +36,10 @@
         }
         function storePost($title,$filename,$content,$c_id,$u_id){
             try{
-                $sql = "INSERT INTO posts(title,img,content,c_id,u_id,created_at,updated_at)VALUES(?,?,?,?,?,?,?)";
-                $currentD = $this->currentD();
+                $sql = "INSERT INTO posts (title,img,content,u_id,c_id,created_at,updated_at)VALUES(?,?,?,?,?,?,?)";
                 $stmt = $this->connect()->prepare($sql);
-                $stmt = execute([$title,$filename,$content,$c_id,$u_id,$currentD,$current]);
+                $stmt->execute([$title,$filename,$content,$c_id,$u_id,$this->currentD(),$this->currentD()]);
+                
             }catch(PDOException $e){
                 echo $e->getMessage();
             }

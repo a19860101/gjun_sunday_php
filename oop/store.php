@@ -9,4 +9,4 @@
     $post = new Post;
     $post->storePost($title,$filename,$content,$c_id,$u_id);
     
-    // header("location:index.php");
+    header("location:index.php");
