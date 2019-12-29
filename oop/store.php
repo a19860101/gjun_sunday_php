@@ -16,7 +16,11 @@
         $post->storePost($title,$filename,$content,$c_id,$u_id);
     }else{
         echo Post::cover($_FILES["img"]);
-        // echo "error";
+        
     }
-    
+    if(Post::coverName($_FILES["img"]) == 4){
+        $filename = "";
+        $post = new Post;
+        $post->storePost($title,$filename,$content,$c_id,$u_id);
+    }
     header("location:index.php");
