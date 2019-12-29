@@ -91,12 +91,12 @@
             $f["error"] = $error;
             return $f;
         }
-        static function cover($file){
-            $coverName = Post::coverName($file);
-            $ext = $coverName["ext"];
-            $filename = $coverName["name"];
-            $tmpname = $coverName["tmp"];
-            $error = $coverName["error"];
+        static function cover($filename,$ext,$tmpname,$error){
+            // $coverName = Post::coverName($file);
+            // $ext = $coverName["ext"];
+            // $filename = $coverName["name"];
+            // $tmpname = $coverName["tmp"];
+            // $error = $coverName["error"];
             
             if($ext == "jpg" || $ext== "png" || $ext == "gif"){
                 if($error == 0 ){
