@@ -1,9 +1,8 @@
 <?php
     include("pdo.php");
     include("post.php");
-
-    $posts = new Post;
-    $rows =  $posts->showAllPosts();
+    $post = new Post;
+    $row = $post->showPost($_GET["id"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,14 +13,9 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
-        <?php foreach($rows as $row){ ?>
-        <tr>
-            <td>
-                <a href="detail.php?id=<?php echo $row["id"];?>"><?php echo $row["title"];?></a>
-            </td>
-        </tr>
-        <?php } ?> 
-    </table>
+    <h2><?php echo $row["title"]?></h2>
+    <div class="content">
+        <?php echo $row["content"]; ?>
+    </div>
 </body>
 </html>
