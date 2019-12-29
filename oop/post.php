@@ -54,18 +54,12 @@
                 echo $e->getMessage();
             }
         }
-        static function cover($file){
-            // var_dump($file);
+        static function coverName($file){
             $filename = $file["name"];
             $filetype = $file["type"];
             $error = $file["error"];
             $filesize = round($file["size"] / 1024);
             $tmpname = $file["tmp_name"];
-            // echo $filename."<br>";
-            // echo $filetype."<br>";
-            // echo $error."<br>";
-            // echo $filesize."<br>";
-            // echo $tmpname."<br>";
             if($error == 4){
                 return 4;
             }
@@ -82,6 +76,19 @@
                     $filename = md5(uniqid()).".gif";
                     break;
             }
+            $f["name"] = $filename;
+            $f["ext"] = $ext;
+            $f["tmp"] = $tmpname;
+            $f["error"] = $error;
+            return $f;
+        }
+        static function cover($file){
+            $coverName = Post::coverName($file);
+            $ext = $coverName["ext"];
+            $filename = $coverName["name"];
+            $tmpname = $coverName["tmp"];
+            $error = $coverName["error"];
+            
             if($ext == "jpg" || $ext== "png" || $ext == "gif"){
                 if($error == 0 ){
                     if(move_uploaded_file($tmpname,"images/{$filename}")){
