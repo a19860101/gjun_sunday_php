@@ -12,6 +12,7 @@
         // $post->storePost($title,$filename,$content,$c_id,$u_id);
     }else{
         echo Post::cover($_FILES["img"]);
+        // echo "error";
     }
     
     // header("location:index.php");

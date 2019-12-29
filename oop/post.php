@@ -82,7 +82,6 @@
                     $filename = md5(uniqid()).".gif";
                     break;
             }
-            // echo $filename;
             if($ext == "jpg" || $ext== "png" || $ext == "gif"){
                 if($error == 0 ){
                     if(move_uploaded_file($tmpname,"images/{$filename}")){
