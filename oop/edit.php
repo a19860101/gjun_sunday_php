@@ -20,10 +20,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 py-3">
-            <h2>新增文章</h2>
+            <h2>編輯文章</h2>
         </div>
         <div class="col-md-8 py-4">
-            <form action="store.php" method="post" enctype="multipart/form-data">
+            <form action="update.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">文章標題</label>
                     <input type="text" name="title" id="title" class="form-control" value="<?php echo $row["title"];?>">
@@ -44,7 +44,8 @@
                     <?php } ?>
                     </select>
                 </div>
-                <input type="submit" class="btn btn-primary" value="新增" name="submit">
+                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
+                <input type="submit" class="btn btn-primary" value="編輯" name="submit">
                 <input type="button" class="btn btn-danger" value="取消" onclick="history.back()">
             </form>
 

@@ -44,6 +44,15 @@
                 echo $e->getMessage();
             }
         }
+        function updatePost($title,$content,$c_id,$id){
+            try {
+                $sql = "UPDATE posts SET title=?,content=?,c_id=?,updated_at=? WHERE id = ?";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt -> execute([$title,$content,$c_id,$this->currentD(),$id]);
+            }catch(PDOException $e){
+                echo $e->getMessage();
+            }
+        }
         function deletePost($id,$img){
             try{
                 unlink($img);
