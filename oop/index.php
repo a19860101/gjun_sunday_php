@@ -14,6 +14,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <a href="create.php">新增文章</a>
+    </div>
     <table>
         <?php foreach($rows as $row){ ?>
         <tr>
