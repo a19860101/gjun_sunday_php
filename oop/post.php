@@ -92,11 +92,6 @@
             return $f;
         }
         static function cover($filename,$ext,$tmpname,$error){
-            // $coverName = Post::coverName($file);
-            // $ext = $coverName["ext"];
-            // $filename = $coverName["name"];
-            // $tmpname = $coverName["tmp"];
-            // $error = $coverName["error"];
             
             if($ext == "jpg" || $ext== "png" || $ext == "gif"){
                 if($error == 0 ){
@@ -108,12 +103,12 @@
                         return 1;
                     }
                 }else if($error == 1){
-                    echo "檔案大小超過限制";
+                    // echo "檔案大小超過限制";
                     return 2;
                 }
         
             }else {
-                echo "請選擇正確的格式";
+                // echo "請選擇正確的格式";
                 return 3;
             }
         }
