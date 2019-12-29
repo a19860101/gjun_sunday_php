@@ -5,8 +5,13 @@
     $content = $_POST["content"];
     $c_id = $_POST["c_id"];
     $u_id = 2;
-    $filename = "";
-    $post = new Post;
-    $post->storePost($title,$filename,$content,$c_id,$u_id);
+    // $filename = "";
+    if(Post::cover($_FILES["img"]) == 0){
+        echo "success";
+        // $post = new Post;
+        // $post->storePost($title,$filename,$content,$c_id,$u_id);
+    }else{
+        echo Post::cover($_FILES["img"]);
+    }
     
-    header("location:index.php");
+    // header("location:index.php");

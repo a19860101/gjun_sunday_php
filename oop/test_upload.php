@@ -3,7 +3,8 @@
     include("post.php");
     if(isset($_POST["submit"])){
         // var_dump($_FILES["file"]);
-        Post::cover($_FILES["file"]);
+        $u = Post::cover($_FILES["file"]);
+        echo $u;
     }
 ?>
 <!DOCTYPE html>

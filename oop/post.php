@@ -66,6 +66,9 @@
             // echo $error."<br>";
             // echo $filesize."<br>";
             // echo $tmpname."<br>";
+            if($error == 4){
+                return 4;
+            }
             $path = pathinfo($filename);
             $ext = $path["extension"];
             switch($ext){
@@ -79,20 +82,24 @@
                     $filename = md5(uniqid()).".gif";
                     break;
             }
-            echo $filename;
+            // echo $filename;
             if($ext == "jpg" || $ext== "png" || $ext == "gif"){
                 if($error == 0 ){
                     if(move_uploaded_file($tmpname,"images/{$filename}")){
-                        echo "上傳成功";
+                        // echo "上傳成功";
+                        return 0;
                     }else{
-                        echo "上傳失敗";
+                        // echo "上傳失敗";
+                        return 1;
                     }
                 }else if($error == 1){
                     echo "檔案大小超過限制";
+                    return 2;
                 }
         
             }else {
                 echo "請選擇正確的格式";
+                return 3;
             }
         }
     }
