@@ -54,40 +54,44 @@
                 echo $e->getMessage();
             }
         }
-        static function cover(){
-            $file = $_FILES["img"];
-            $filename = $_FILES["img"]["name"];
-            $filetype = $_FILES["img"]["type"];
-            $error = $_FILES["img"]["error"];
-            $filesize = round($_FILES["img"]["size"] / 1024);
-            $tmpname = $_FILES["img"]["tmp_name"];
-
-            $path = pathinfo($filename);
-            $ext = $path["extension"];
-            switch($ext){
-                case "jpg":
-                    $filename = md5(uniqid()).".jpg";
-                    break;
-                case "png":
-                    $filename = md5(uniqid()).".png";
-                    break;
-                case "gif":
-                    $filename = md5(uniqid()).".gif";
-                    break;
-            }
-            if($ext == "jpg" || $ext== "png" || $ext == "gif"){
-                if($error == 0 ){
-                    if(move_uploaded_file($tmpname,"images/{$filename}")){
-                        echo "上傳成功";
-                    }else{
-                        echo "上傳失敗";
-                    }
-                }else if($error == 1){
-                    echo "檔案大小超過限制";
-                }
+        static function cover($file){
+            // var_dump($file);
+            $filename = $file["name"];
+            $filetype = $file["type"];
+            $error = $file["error"];
+            $filesize = round($file["size"] / 1024);
+            $tmpname = $file["tmp_name"];
+            echo $filename."<br>";
+            echo $filetype."<br>";
+            echo $error."<br>";
+            echo $filesize."<br>";
+            echo $tmpname."<br>";
+            // $path = pathinfo($filename);
+            // $ext = $path["extension"];
+            // switch($ext){
+            //     case "jpg":
+            //         $filename = md5(uniqid()).".jpg";
+            //         break;
+            //     case "png":
+            //         $filename = md5(uniqid()).".png";
+            //         break;
+            //     case "gif":
+            //         $filename = md5(uniqid()).".gif";
+            //         break;
+            // }
+            // if($ext == "jpg" || $ext== "png" || $ext == "gif"){
+            //     if($error == 0 ){
+            //         if(move_uploaded_file($tmpname,"images/{$filename}")){
+            //             echo "上傳成功";
+            //         }else{
+            //             echo "上傳失敗";
+            //         }
+            //     }else if($error == 1){
+            //         echo "檔案大小超過限制";
+            //     }
         
-            }else {
-                echo "請選擇正確的格式";
-            }
+            // }else {
+            //     echo "請選擇正確的格式";
+            // }
         }
     }
