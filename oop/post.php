@@ -34,4 +34,14 @@
                 echo $e->getMessage();
             }
         }
+        function deletePost($id,$img){
+            try{
+                unlink($img);
+                $sql = "DELETE FROM posts WHERE id = ?";
+                $stms = $this->connect()->prepare($sql);
+                $stms->execute([$id]);
+            }catch(PDOException $e){
+                echo $e->getMessage();
+            }
+        }
     }

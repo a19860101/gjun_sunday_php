@@ -20,6 +20,9 @@
             <td>
                 <a href="detail.php?id=<?php echo $row["id"];?>"><?php echo $row["title"];?></a>
             </td>
+            <td>
+                <a href="delete.php?id=<?php echo $row["id"];?>&img=<?php echo $row["img"]?>">刪除</a>
+            </td>
         </tr>
         <?php } ?> 
     </table>
