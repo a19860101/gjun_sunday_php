@@ -61,37 +61,38 @@
             $error = $file["error"];
             $filesize = round($file["size"] / 1024);
             $tmpname = $file["tmp_name"];
-            echo $filename."<br>";
-            echo $filetype."<br>";
-            echo $error."<br>";
-            echo $filesize."<br>";
-            echo $tmpname."<br>";
-            // $path = pathinfo($filename);
-            // $ext = $path["extension"];
-            // switch($ext){
-            //     case "jpg":
-            //         $filename = md5(uniqid()).".jpg";
-            //         break;
-            //     case "png":
-            //         $filename = md5(uniqid()).".png";
-            //         break;
-            //     case "gif":
-            //         $filename = md5(uniqid()).".gif";
-            //         break;
-            // }
-            // if($ext == "jpg" || $ext== "png" || $ext == "gif"){
-            //     if($error == 0 ){
-            //         if(move_uploaded_file($tmpname,"images/{$filename}")){
-            //             echo "上傳成功";
-            //         }else{
-            //             echo "上傳失敗";
-            //         }
-            //     }else if($error == 1){
-            //         echo "檔案大小超過限制";
-            //     }
+            // echo $filename."<br>";
+            // echo $filetype."<br>";
+            // echo $error."<br>";
+            // echo $filesize."<br>";
+            // echo $tmpname."<br>";
+            $path = pathinfo($filename);
+            $ext = $path["extension"];
+            switch($ext){
+                case "jpg":
+                    $filename = md5(uniqid()).".jpg";
+                    break;
+                case "png":
+                    $filename = md5(uniqid()).".png";
+                    break;
+                case "gif":
+                    $filename = md5(uniqid()).".gif";
+                    break;
+            }
+            echo $filename;
+            if($ext == "jpg" || $ext== "png" || $ext == "gif"){
+                if($error == 0 ){
+                    if(move_uploaded_file($tmpname,"images/{$filename}")){
+                        echo "上傳成功";
+                    }else{
+                        echo "上傳失敗";
+                    }
+                }else if($error == 1){
+                    echo "檔案大小超過限制";
+                }
         
-            // }else {
-            //     echo "請選擇正確的格式";
-            // }
+            }else {
+                echo "請選擇正確的格式";
+            }
         }
     }
