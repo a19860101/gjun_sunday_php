@@ -6,6 +6,11 @@
         private $db_name = "sunday";
         private $db_charset = "utf8mb4";
 
+        function currentD(){
+            date_default_timezone_set("Asia/Taipei");
+            $currentD = date("Y-m-d H:i:s");
+            return $currentD;
+        }
         function connect(){
             try {
                 $dsn = "mysql:host={$this->db_host};dbname={$this->db_name};charset={$this->db_charset}";
@@ -16,6 +21,7 @@
                 echo $e->getMessage();
             }
         }
+
     }
 
     // $test = new DB;

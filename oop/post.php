@@ -26,10 +26,20 @@
         function showPost($id){
             try{
                 $sql = "SELECT * FROM posts WHERE id = ?";
-                $stms = $this->connect()->prepare($sql);
-                $stms->execute([$id]);
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute([$id]);
                 $row = $stms->fetch();
                 return $row;
+            }catch(PDOException $e){
+                echo $e->getMessage();
+            }
+        }
+        function storePost($title,$filename,$content,$c_id,$u_id){
+            try{
+                $sql = "INSERT INTO posts(title,img,content,c_id,u_id,created_at,updated_at)VALUES(?,?,?,?,?,?,?)";
+                $currentD = $this->currentD();
+                $stmt = $this->connect()->prepare($sql);
+                $stmt = execute([$title,$filename,$content,$c_id,$u_id,$currentD,$current]);
             }catch(PDOException $e){
                 echo $e->getMessage();
             }
