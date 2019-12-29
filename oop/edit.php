@@ -29,8 +29,13 @@
                     <input type="text" name="title" id="title" class="form-control" value="<?php echo $row["title"];?>">
                 </div>
                 <div class="form-group">
+                    <?php if(empty($row["img"])){?>
                     <label for="img">封面圖片</label>
                     <input type="file" name="img" id="img" class="form-control-file">
+                    <?php }else{?>
+                    <img src="images/<?php echo $row["img"];?>" alt="">
+                    <a href="#">刪除</a>
+                    <?php } ?>
                 </div>
                 <div class="form-group">
                     <label for="content">文章內容</label>
