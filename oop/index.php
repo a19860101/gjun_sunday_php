@@ -4,7 +4,7 @@
 
     $posts = new Post;
     // $rows =  $posts->showAllPosts();
-    $rows = $posts->pagination(10);
+    $rows = $posts->pagination(3);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,5 +33,6 @@
         </tr>
         <?php } ?> 
     </table>
+    <?php echo $posts->pager(); ?>
 </body>
 </html>

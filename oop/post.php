@@ -1,5 +1,7 @@
 <?php
     class Post extends DB {
+        public $page;
+        public $pages;
         function showAllPosts(){
             try{
                 $sql = "SELECT posts.* ,users.name,users.email, category.title
@@ -30,18 +32,18 @@
                 $stmt->execute();
                 $total = $stmt->rowCount();
                 // $per = 3;
-                $pages = ceil($total / $per);
+                $this->pages = ceil($total / $per);
                 //ceil 無條件進位
                 //floor 無條件捨去
                 //round 四捨五入
         
                 if(!isset($_GET["page"])){
-                    $page = 1;//當前頁面
+                    $this->page = 1;//當前頁面
                 }else{
-                    $page = $_GET["page"];
+                    $this->page = $_GET["page"];
                 }
           
-                $start = ($page - 1) * $per;
+                $start = ($this->page - 1) * $per;
                 $sql = "SELECT * FROM posts LIMIT $start,$per";
                 $stmt = $this->connect()->prepare($sql);
                 $stmt->execute();
@@ -53,6 +55,23 @@
                 return $rows;
             }catch(PDOException $e){
                 echo $e->getMessage();
+            }
+        }
+        function pager(){
+            $page = $this->page;
+            $next = $this->page + 1;
+            $prev = $this->page - 1;
+            $pages = $this->pages;
+
+            $webpage = $_SERVER["PHP_SELF"];
+            echo "<div>";
+            if($page != 1){
+                echo "<a href='{$webpage}?page=1'>最前頁</a>";
+                echo "<a href='{$webpage}?page={$prev}'>上一頁</a>";
+            }
+            if($page != $pages){
+                echo "<a href='{$webpage}?page={$next}'>下一頁</a>";
+                echo "<a href='{$webpage}?page={$pages}'>最末頁</a>";
             }
         }
         function showPost($id){
