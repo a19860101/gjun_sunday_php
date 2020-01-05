@@ -4,6 +4,7 @@
         $sql = "SELECT * FROM posts";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
+        $total = $stmt->rowCount();
         $rows = array();
         while($row = $stmt->fetch()){
             $rows[] = $row;
@@ -36,6 +37,9 @@
     </style>
 </head>
 <body>
+    <div>
+        資料總筆數：<?php echo $total; ?>
+    </div>
     <table>
         <?php foreach($rows as $row){ ?>
             <tr>
@@ -47,6 +51,10 @@
             </tr>
         <?php } ?>
     </table>
+    <a href="#">首頁</a>
+    <a href="#">上一頁</a>
+    <a href="#">下一頁</a>
+    <a href="#">最末頁</a>
 
 </body>
 </html>
