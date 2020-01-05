@@ -72,6 +72,12 @@
     <a href="index.php?page=1">首頁</a>
     <a href="index.php?page=<?php echo $page-1?>">上一頁</a>
     <?php } ?>
+    <?php 
+        for($i=0;$i<$pages;$i++){
+            $p = $i + 1;
+            echo "<a href='index.php?page={$p}'>{$p}</a> ";
+        }
+    ?>
     <?php if($page != $pages){ ?>
     <a href="index.php?page=<?php echo $page+1?>">下一頁</a>
     <a href="index.php?page=<?php echo $pages;?>">最末頁</a>
