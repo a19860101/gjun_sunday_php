@@ -5,7 +5,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $total = $stmt->rowCount();
-        $per = 3;
+        $per = 2;
         $pages = ceil($total / $per);
         //ceil 無條件進位
         //floor 無條件捨去
@@ -16,8 +16,9 @@
         }else{
             $page = $_GET["page"];
         }
-
-        $sql = "SELECT * FROM posts LIMIT 6,3";
+  
+        $start = ($page - 1) * $per;
+        $sql = "SELECT * FROM posts LIMIT $start,$per";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
@@ -70,7 +71,7 @@
     <a href="index.php?page=1">首頁</a>
     <a href="index.php?page=<?php echo $page-1?>">上一頁</a>
     <a href="index.php?page=<?php echo $page+1?>">下一頁</a>
-    <a href="index.php?page=<?php echo $total;?>">最末頁</a>
+    <a href="index.php?page=<?php echo $pages;?>">最末頁</a>
     <div>目前頁面 : <?php echo $page; ?></div>
 </body>
 </html>
