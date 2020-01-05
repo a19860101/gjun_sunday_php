@@ -58,6 +58,7 @@
     </style>
 </head>
 <body>
+    <?php echo $_SERVER["PHP_SELF"];?>
     <div>
         資料總筆數：<?php echo $total; ?>
     </div>
@@ -73,8 +74,8 @@
         <?php } ?>
     </table>
     <?php if($page != 1){?>
-    <a href="index.php?page=1">首頁</a>
-    <a href="index.php?page=<?php echo $page-1?>">上一頁</a>
+    <a href="<?php echo $_SERVER["PHP_SELF"];?>?page=1">首頁</a>
+    <a href="<?php echo $_SERVER["PHP_SELF"];?>?page=<?php echo $page-1?>">上一頁</a>
     <?php } ?>
     <?php 
         // for($i=0;$i<$pages;$i++){
@@ -84,15 +85,15 @@
         for($i=0;$i<$pages;$i++){
             $p = $i + 1;
             if($p == $page){
-                echo "<a href='index.php?page={$p}' class='active'>{$p}</a> ";
+                echo "<a href='{$_SERVER["PHP_SELF"]}?page={$p}' class='active'>{$p}</a> ";
             }else{
-                echo "<a href='index.php?page={$p}'>{$p}</a> ";
+                echo "<a href='{$_SERVER["PHP_SELF"]}?page={$p}'>{$p}</a> ";
             }
         }
     ?>
     <?php if($page != $pages){ ?>
-    <a href="index.php?page=<?php echo $page+1?>">下一頁</a>
-    <a href="index.php?page=<?php echo $pages;?>">最末頁</a>
+    <a href="<?php echo $_SERVER["PHP_SELF"];?>?page=<?php echo $page+1?>">下一頁</a>
+    <a href="<?php echo $_SERVER["PHP_SELF"];?>?page=<?php echo $pages;?>">最末頁</a>
     <?php } ?>
     <div>目前頁面 : <?php echo $page; ?></div>
 </body>
