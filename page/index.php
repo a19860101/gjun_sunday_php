@@ -5,6 +5,16 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $total = $stmt->rowCount();
+        $per = 3;
+        $pages = ceil($total / $per);
+        //ceil 無條件進位
+        //floor 無條件捨去
+        //round 四捨五入
+
+        $sql = "SELECT * FROM posts LIMIT 6,3";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
         $rows = array();
         while($row = $stmt->fetch()){
             $rows[] = $row;
