@@ -23,6 +23,38 @@
                 echo $e->getMessage();
             }
         }
+        function pagination($per = 3){
+            try {
+                $sql = "SELECT * FROM posts";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+                $total = $stmt->rowCount();
+                // $per = 3;
+                $pages = ceil($total / $per);
+                //ceil 無條件進位
+                //floor 無條件捨去
+                //round 四捨五入
+        
+                if(!isset($_GET["page"])){
+                    $page = 1;//當前頁面
+                }else{
+                    $page = $_GET["page"];
+                }
+          
+                $start = ($page - 1) * $per;
+                $sql = "SELECT * FROM posts LIMIT $start,$per";
+                $stmt = $this->connect()->prepare($sql);
+                $stmt->execute();
+        
+                $rows = array();
+                while($row = $stmt->fetch()){
+                    $rows[] = $row;
+                }
+                return $rows;
+            }catch(PDOException $e){
+                echo $e->getMessage();
+            }
+        }
         function showPost($id){
             try{
                 $sql = "SELECT * FROM posts WHERE id = ?";

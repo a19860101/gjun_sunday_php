@@ -3,7 +3,8 @@
     include("post.php");
 
     $posts = new Post;
-    $rows =  $posts->showAllPosts();
+    // $rows =  $posts->showAllPosts();
+    $rows = $posts->pagination(10);
 ?>
 <!DOCTYPE html>
 <html lang="en">
