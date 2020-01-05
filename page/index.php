@@ -11,6 +11,12 @@
         //floor 無條件捨去
         //round 四捨五入
 
+        if(!isset($_GET["page"])){
+            $page = 1;//當前頁面
+        }else{
+            $page = $_GET["page"];
+        }
+
         $sql = "SELECT * FROM posts LIMIT 6,3";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -61,10 +67,10 @@
             </tr>
         <?php } ?>
     </table>
-    <a href="#">首頁</a>
-    <a href="#">上一頁</a>
-    <a href="#">下一頁</a>
-    <a href="#">最末頁</a>
-
+    <a href="index.php?page=1">首頁</a>
+    <a href="index.php?page=<?php echo $page-1?>">上一頁</a>
+    <a href="index.php?page=<?php echo $page+1?>">下一頁</a>
+    <a href="index.php?page=<?php echo $total;?>">最末頁</a>
+    <div>目前頁面 : <?php echo $page; ?></div>
 </body>
 </html>
