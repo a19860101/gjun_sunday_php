@@ -69,6 +69,14 @@
                 echo "<a href='{$webpage}?page=1'>最前頁</a>";
                 echo "<a href='{$webpage}?page={$prev}'>上一頁</a>";
             }
+            for($i=0;$i<$pages;$i++){
+                $p = $i + 1;
+                if($p == $page){
+                    echo "<a href='{$webpage}?page={$p}' class='active'>{$p}</a> ";
+                }else{
+                    echo "<a href='{$webpage}?page={$p}'>{$p}</a> ";
+                }
+            }
             if($page != $pages){
                 echo "<a href='{$webpage}?page={$next}'>下一頁</a>";
                 echo "<a href='{$webpage}?page={$pages}'>最末頁</a>";

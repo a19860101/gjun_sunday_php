@@ -3,7 +3,7 @@
     include("post.php");
 
     $posts = new Post;
-    // $rows =  $posts->showAllPosts();
+    // $rows =  $posts-r>showAllPosts();
     $rows = $posts->pagination(3);
 ?>
 <!DOCTYPE html>
@@ -13,6 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .active {
+            font-size: 2em;
+        }
+    </style>
 </head>
 <body>
     <div>
