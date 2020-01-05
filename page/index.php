@@ -51,6 +51,10 @@
             padding: 10px;
             border-collapse: collapse;
         }
+        .active {
+            font-size: 2em;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -73,9 +77,17 @@
     <a href="index.php?page=<?php echo $page-1?>">上一頁</a>
     <?php } ?>
     <?php 
+        // for($i=0;$i<$pages;$i++){
+        //     $p = $i + 1;
+        //     echo "<a href='index.php?page={$p}'>{$p}</a> ";
+        // }
         for($i=0;$i<$pages;$i++){
             $p = $i + 1;
-            echo "<a href='index.php?page={$p}'>{$p}</a> ";
+            if($p == $page){
+                echo "<a href='index.php?page={$p}' class='active'>{$p}</a> ";
+            }else{
+                echo "<a href='index.php?page={$p}'>{$p}</a> ";
+            }
         }
     ?>
     <?php if($page != $pages){ ?>
