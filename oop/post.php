@@ -89,6 +89,7 @@
             $f["ext"] = $ext;
             $f["tmp"] = $tmpname;
             $f["error"] = $error;
+            // $f = compact("filename","ext","tmpname","error");
             return $f;
         }
         static function cover($filename,$ext,$tmpname,$error){
