@@ -5,7 +5,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $total = $stmt->rowCount();
-        $per = 2;
+        $per = 3;
         $pages = ceil($total / $per);
         //ceil 無條件進位
         //floor 無條件捨去
@@ -68,10 +68,14 @@
             </tr>
         <?php } ?>
     </table>
+    <?php if($page != 1){?>
     <a href="index.php?page=1">首頁</a>
     <a href="index.php?page=<?php echo $page-1?>">上一頁</a>
+    <?php } ?>
+    <?php if($page != $pages){ ?>
     <a href="index.php?page=<?php echo $page+1?>">下一頁</a>
     <a href="index.php?page=<?php echo $pages;?>">最末頁</a>
+    <?php } ?>
     <div>目前頁面 : <?php echo $page; ?></div>
 </body>
 </html>
